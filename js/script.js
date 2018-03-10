@@ -4,7 +4,6 @@ document.getElementById('loadQuote').addEventListener("click", printQuote, false
 
 var RandomNumber;
 var RandomQuote;
-var html;
 
 // an array called "quotes" including JavaScript objects which hold the data for my quotes
 var quotes = [
@@ -24,7 +23,7 @@ function getRandomQuote () {
 // a function called "printQuote" which stores the quotes-array selected in the "getRandomQuote"-function in the variable "RandomQuote" and constructs a string containing the different properties of the quote object
 function printQuote () {
   RandomQuote = getRandomQuote ();  // stores the quote-object in the "RandomQuote"-variable
-  html += '<p class="quote">' + RandomQuote.quote + '</p>'; // start of the construction of the string including all key variables from the object stored in the "randomQuote"-variable
+  html = '<p class="quote">' + RandomQuote.quote + '</p>'; // start of the construction of the string including all key variables from the object stored in the "randomQuote"-variable
   html += '<p class="source">' + RandomQuote.source;
   if (RandomQuote.citation) {
     html += '<span class="citation">' + [RandomQuote.citation] + '</span>';
@@ -36,5 +35,3 @@ function printQuote () {
 
   return html;
 }
-
-printQuote();
