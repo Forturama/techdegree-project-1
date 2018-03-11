@@ -1,6 +1,7 @@
 // event listener to respond to "Show another quote" button clicks
 // when user clicks anywhere on the button, the "printQuote" function is called
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+document.getElementById('loadQuote').addEventListener("click", backgroundColor, false);
 
 var RandomNumber;
 var RandomQuote;
@@ -13,6 +14,7 @@ var quotes = [
   {quote: "Politics determine who has the power, not who has the truth.", source: "Paul Krugman", citation: "The Australian Financial Review", year: 2010, tag: "#philosophy"},
   {quote: "You don't have to wait till your party's in power to have an impact on life at home and around the world.", source: "Bill Clinton", citation: "speech at Campus Progress National Student Conference", year: 2005, tag:"#motivation"}
 ]
+
 
 // a function called "getRandomQuote" which returns one quote from the "quotes" array
 function getRandomQuote () {
@@ -37,4 +39,15 @@ function printQuote () {
   var div = document.getElementById('quote-box').innerHTML = html;
 
   return html;
+}
+
+// a function called "backgroundColor" that generates a raondom color. This color is applied to the body's background-color
+function backgroundColor () {
+
+r = Math.floor(Math.random()*16).toString(16);
+g = Math.floor(Math.random()*16).toString(16);
+b = Math.floor(Math.random()*16).toString(16);
+color = `#${r}${g}${b}`;                        // Inside the Back-Ticks (``) are template-strings. These template are filled with a random hexadecimal number each time the function runs.
+document.body.style.backgroundColor = color;
+console.log(color);
 }
