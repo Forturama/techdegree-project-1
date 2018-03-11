@@ -7,11 +7,11 @@ var RandomQuote;
 
 // an array called "quotes" including JavaScript objects which hold the data for my quotes
 var quotes = [
-  {quote: "Don't cry because it's over, smile because it happened.", source: "Dr. Seuss"},
-  {quote: "Politics have no relation to morals.", source: "Niccolò Machiavelli" },
-  {quote: "In my mind, I'm always the best. I think that this is key for all people that want to be the best.", source: "Cristiano Ronaldo", year: 2015},
-  {quote: "Politics determine who has the power, not who has the truth.", source: "Paul Krugman", citation: "The Australian Financial Review", year: 2010},
-  {quote: "You don't have to wait till your party's in power to have an impact on life at home and around the world.", source: "Bill Clinton", citation: "speech at Campus Progress National Student Conference", year: 2005}
+  {quote: "Don't cry because it's over, smile because it happened.", source: "Dr. Seuss", tag: "#philosophy"},
+  {quote: "Politics have no relation to morals.", source: "Niccolò Machiavelli", tag: "#statement"},
+  {quote: "In my mind, I'm always the best. I think that this is key for all people that want to be the best.", source: "Cristiano Ronaldo", year: 2015, tag: "#advice, #motivation"},
+  {quote: "Politics determine who has the power, not who has the truth.", source: "Paul Krugman", citation: "The Australian Financial Review", year: 2010, tag: "#philosophy"},
+  {quote: "You don't have to wait till your party's in power to have an impact on life at home and around the world.", source: "Bill Clinton", citation: "speech at Campus Progress National Student Conference", year: 2005, tag:"#motivation"}
 ]
 
 // a function called "getRandomQuote" which returns one quote from the "quotes" array
@@ -30,6 +30,9 @@ function printQuote () {
   }
   if (RandomQuote.year) {
     html += '<span class="year">' + [RandomQuote.year] + '</span>';
+  }
+  if (RandomQuote.tag) {
+    html +='<span class="tag">' + [RandomQuote.tag] + '</span>';
   }
   var div = document.getElementById('quote-box').innerHTML = html;
 
