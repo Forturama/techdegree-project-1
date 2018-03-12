@@ -51,3 +51,13 @@ color = `#${r}${g}${b}`;                        // Inside the Back-Ticks (``) ar
 document.body.style.backgroundColor = color;
 console.log(color);
 }
+
+
+function changeQuoteAutomatically () {
+setInterval(function() {
+  printQuote ();
+  backgroundColor ()
+}, 5000);
+}
+
+changeQuoteAutomatically();
