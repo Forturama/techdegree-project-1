@@ -8,12 +8,42 @@ var RandomQuote;
 
 // an array called "quotes" including JavaScript objects which hold the data for my quotes
 var quotes = [
-  {quote: "Don't cry because it's over, smile because it happened.", source: "Dr. Seuss", tag: "#philosophy"},
-  {quote: "Politics have no relation to morals.", source: "Niccolò Machiavelli", tag: "#statement"},
-  {quote: "In my mind, I'm always the best. I think that this is key for all people that want to be the best.", source: "Cristiano Ronaldo", year: 2015, tag: "#advice, #motivation"},
-  {quote: "Politics determine who has the power, not who has the truth.", source: "Paul Krugman", citation: "The Australian Financial Review", year: 2010, tag: "#philosophy"},
-  {quote: "You don't have to wait till your party's in power to have an impact on life at home and around the world.", source: "Bill Clinton", citation: "speech at Campus Progress National Student Conference", year: 2005, tag:"#motivation"}
-]
+  {
+    quote: "Don't cry because it's over, smile because it happened.",
+    source: "Dr. Seuss",
+    tag: "#philosophy"
+  },
+  {
+    quote: "Politics have no relation to morals.",
+    source: "Niccolò Machiavelli",
+    tag: "#statement"
+  },
+  {
+    quote: "In my mind, I'm always the best. I think that this is key for all people that want to be the best.",
+    source: "Cristiano Ronaldo",
+    year: 2015,
+    tag: "#advice, #motivation"
+  },
+  {
+    quote: "Politics determine who has the power, not who has the truth.",
+    source: "Paul Krugman",
+    citation: "The Australian Financial Review",
+    year: 2010,
+    tag: "#philosophy"
+  },
+  {
+    quote: "You don't have to wait till your party's in power to have an impact on life at home and around the world.",
+    source: "Bill Clinton",
+    citation: "speech at Campus Progress National Student Conference",
+    year: 2005,
+    tag:"#motivation"
+  },
+  {
+    quote: "Life is 10% what happens to you and 90% how you react to it.",
+    source: "Charles R. Swindoll",
+    tag: "#philosophy, #motivation"
+  }
+];
 
 
 // a function called "getRandomQuote" which returns one quote from the "quotes" array
