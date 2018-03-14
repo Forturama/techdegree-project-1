@@ -45,6 +45,7 @@ var quotes = [
   }
 ];
 
+var backupQuotes = [];
 
 // a function called "getRandomQuote" which returns one quote from the "quotes" array
 function getRandomQuote () {
@@ -67,9 +68,21 @@ function printQuote () {
     html +='<span class="tag">' + [RandomQuote.tag] + '</span>';
   }
   var div = document.getElementById('quote-box').innerHTML = html;
-
   return html;
+backupQuotes.push(RandomQuote);                       // Quotes are stored in the var "backupQuotes" as soon as they appeared on the page
+var quoteIndex = quotes.indexOf(RandomQuote);         // Index of used quotes is stored in the var "quoteIndex"
+
+if (quoteIndex = -1) {                                // Quote will be removed from var "quotes" if it is contained in "quotes"
+quotes.splice(quoteIndex, 1);
 }
+
+if (quotes.length = 0) {                              // If 0 quotes are left in var "quotes", all objects stored in var "backupQuotes" are transfered to var "quotes"
+  for (var i = 0; i < backupQuotes.length; i++) {
+  quotes.push(backupQuotes[i]);
+    }
+  }
+}
+
 
 // a function called "backgroundColor" that generates a raondom color. This color is applied to the body's background-color
 function backgroundColor () {
