@@ -3,7 +3,7 @@
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 document.getElementById('loadQuote').addEventListener("click", backgroundColor, false);
 
-var RandomNumber;
+
 var RandomQuote;
 
 // an array called "quotes" including JavaScript objects which hold the data for my quotes
@@ -45,18 +45,23 @@ var quotes = [
   }
 ];
 
-var backupQuotes = [];
+var backupQuotes = quotes.slice(0);
 
-// a function called "getRandomQuote" which returns one quote from the "quotes" array
 function getRandomQuote () {
-  RandomNumber = Math.floor(Math.random() * quotes.length); // creates a random number between 0 and 4 which will determine which quote-object from the "quotes"-array will be selected
-  return quotes[RandomNumber];  // returns one quote-object from the "quotes"-array
+
+  if (backupQuotes.length === 0) {
+      backupQuotes = quotes.slice(0)
+  }
+
+  let RandomNumber = Math.floor(Math.random() * backupQuotes.length);
+  return backupQuotes.splice(RandomNumber, 1)[0];
 }
 
-// a function called "printQuote" which stores the quotes-array selected in the "getRandomQuote"-function in the variable "RandomQuote" and constructs a string containing the different properties of the quote object
+
+
 function printQuote () {
-  RandomQuote = getRandomQuote ();  // stores the quote-object in the "RandomQuote"-variable
-  html = '<p class="quote">' + RandomQuote.quote + '</p>'; // start of the construction of the string including all key variables from the object stored in the "randomQuote"-variable
+  RandomQuote = getRandomQuote();
+  html = '<p class="quote">' + RandomQuote.quote + '</p>';
   html += '<p class="source">' + RandomQuote.source;
   if (RandomQuote.citation) {
     html += '<span class="citation">' + [RandomQuote.citation] + '</span>';
@@ -69,18 +74,6 @@ function printQuote () {
   }
   var div = document.getElementById('quote-box').innerHTML = html;
   return html;
-backupQuotes.push(RandomQuote);                       // Quotes are stored in the var "backupQuotes" as soon as they appeared on the page
-var quoteIndex = quotes.indexOf(RandomQuote);         // Index of used quotes is stored in the var "quoteIndex"
-
-if (quoteIndex = -1) {                                // Quote will be removed from var "quotes" if it is contained in "quotes"
-quotes.splice(quoteIndex, 1);
-}
-
-if (quotes.length = 0) {                              // If 0 quotes are left in var "quotes", all objects stored in var "backupQuotes" are transfered to var "quotes"
-  for (var i = 0; i < backupQuotes.length; i++) {
-  quotes.push(backupQuotes[i]);
-    }
-  }
 }
 
 
