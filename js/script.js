@@ -1,12 +1,10 @@
-// event listener to respond to "Show another quote" button clicks
-// when user clicks anywhere on the button, the "printQuote" function is called
+// two event listener which respond to clicks on the button "Show another quote"
+// when user clicks anywhere on the button, the "printQuote" and "backgroundColor" fuctions are called
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 document.getElementById('loadQuote').addEventListener("click", backgroundColor, false);
 
 
-var RandomQuote;
-
-// an array called "quotes" including JavaScript objects which hold the data for my quotes
+// an array called "quotes" including JavaScript objects. Each object holds information about quotes
 var quotes = [
   {
     quote: "Don't cry because it's over, smile because it happened.",
@@ -45,22 +43,28 @@ var quotes = [
   }
 ];
 
+// function called "backupQuotes" which stores a copy of the array "quotes" when the page is opened for the first time
 var backupQuotes = quotes.slice(0);
 
+// function called "getRandomQuote" which returns one quote from the var "backupQuotes"
 function getRandomQuote () {
 
+// condition that reviews whether the var "backupQuotes" holds any objects.
+// if var "backupQuotes" holds no objects, a copy of the array "quotes" is stored in "backupQuotes"
   if (backupQuotes.length === 0) {
       backupQuotes = quotes.slice(0)
   }
 
+// var "RandomNumber" creates a random number. The random has a value between 0 (first element) and the max-length (last element) of the array
   let RandomNumber = Math.floor(Math.random() * backupQuotes.length);
+
+// function returns and removes one element stored in "backupQuotes"
   return backupQuotes.splice(RandomNumber, 1)[0];
 }
 
-
-
+// function "printQuote" which builds a paragraph based on all information given for each quote that is returned by the function "getRandomQuote"
 function printQuote () {
-  RandomQuote = getRandomQuote();
+  var RandomQuote = getRandomQuote();
   html = '<p class="quote">' + RandomQuote.quote + '</p>';
   html += '<p class="source">' + RandomQuote.source;
   if (RandomQuote.citation) {
@@ -77,18 +81,20 @@ function printQuote () {
 }
 
 
-// a function called "backgroundColor" that generates a raondom color. This color is applied to the body's background-color
+// function called "backgroundColor" that generates a raondom color. This color is applied to the body's background-color
 function backgroundColor () {
 
 r = Math.floor(Math.random()*16).toString(16);
 g = Math.floor(Math.random()*16).toString(16);
 b = Math.floor(Math.random()*16).toString(16);
-color = `#${r}${g}${b}`;                        // Inside the Back-Ticks (``) are template-strings. These template are filled with a random hexadecimal number each time the function runs.
+// inside the Back-Ticks (``) are template-strings. These template are filled with a random hexadecimal number each time the function runs
+var color = `#${r}${g}${b}`;
+// the random hexadecimal number stored in var "color" is applied to the page's
 document.body.style.backgroundColor = color;
 console.log(color);
 }
 
-
+// function "changeQuoteAutomatically" which calls the "printQuote()" and "backgroundColor()" every 5 seconds automatically
 function changeQuoteAutomatically () {
 setInterval(function() {
   printQuote ();
@@ -96,4 +102,5 @@ setInterval(function() {
 }, 5000);
 }
 
+// call for "changeQuoteAutomatically"
 changeQuoteAutomatically();
