@@ -65,8 +65,8 @@ function getRandomQuote () {
 // function "printQuote" which builds a paragraph based on all information given for each quote that is returned by the function "getRandomQuote"
 function printQuote () {
   var RandomQuote = getRandomQuote();
-  html = '<p class="quote">' + RandomQuote.quote + '</p>';
-  html += '<p class="source">' + RandomQuote.source;
+    html = '<p class="quote">' + RandomQuote.quote + '</p>';
+    html += '<p class="source">' + RandomQuote.source;
   if (RandomQuote.citation) {
     html += '<span class="citation">' + [RandomQuote.citation] + '</span>';
   }
@@ -81,25 +81,24 @@ function printQuote () {
 }
 
 
-// function called "backgroundColor" that generates a raondom color. This color is applied to the body's background-color
+  // function called "backgroundColor" that generates a raondom color. This color is applied to the body's background-color
 function backgroundColor () {
-
-r = Math.floor(Math.random()*16).toString(16);
-g = Math.floor(Math.random()*16).toString(16);
-b = Math.floor(Math.random()*16).toString(16);
-// inside the Back-Ticks (``) are template-strings. These template are filled with a random hexadecimal number each time the function runs
-var color = `#${r}${g}${b}`;
-// the random hexadecimal number stored in var "color" is applied to the page's
-document.body.style.backgroundColor = color;
-console.log(color);
+  r = Math.floor(Math.random()*16).toString(16);
+  g = Math.floor(Math.random()*16).toString(16);
+  b = Math.floor(Math.random()*16).toString(16);
+  // inside the Back-Ticks (``) are template-strings. These strings are filled with a random hexadecimal number each time the function runs
+  var color = `#${r}${g}${b}`;
+  // the random hexadecimal number stored in var "color" is applied to the page
+  document.body.style.backgroundColor = color;
+  console.log(color);
 }
 
-// function "changeQuoteAutomatically" which calls the "printQuote()" and "backgroundColor()" every 5 seconds automatically
+// function "changeQuoteAutomatically" which calls the "printQuote()" and "backgroundColor()" every 10 seconds automatically
 function changeQuoteAutomatically () {
-setInterval(function() {
-  printQuote ();
-  backgroundColor ()
-}, 5000);
+  setInterval(function() {
+    printQuote ();
+    backgroundColor ()
+  }, 10000);
 }
 
 // call for "changeQuoteAutomatically"
